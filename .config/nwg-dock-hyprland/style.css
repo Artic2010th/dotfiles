@@ -1,0 +1,28 @@
+window {
+    background: rgba(20, 8, 11, 0.85);
+    border-radius: 18px 18px 0 0;
+    border: 1px solid rgba(255, 77, 90, 0.35);
+    border-bottom: none;
+    padding: 4px 10px;
+}
+
+#box {
+    padding: 4px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    margin: 3px;
+    padding: 6px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: rgba(217, 4, 41, 0.35);
+}
+
+button.active {
+    background: rgba(217, 4, 41, 0.55);
+}

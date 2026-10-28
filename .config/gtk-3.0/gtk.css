@@ -1,0 +1,8 @@
+@define-color theme_selected_bg_color #b3122b;
+@define-color theme_selected_fg_color #ffffff;
+@define-color accent_color #ff4d5a;
+@define-color accent_bg_color #b3122b;
+@define-color accent_fg_color #ffffff;
+@define-color destructive_bg_color #d90429;
+@define-color destructive_fg_color #ffffff;
+@define-color link_color #ff6b6b;
