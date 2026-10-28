@@ -5,7 +5,8 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 SRC="$SCRIPT_DIR/.config"
 DEST="$HOME/.config"
 BACKUP="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
-WALLPAPER="$HOME/Pictures/wallpapers/les_bordovye_osen.jpg"
+WALLPAPER_SRC="$SCRIPT_DIR/wallpapers/les_bordovye_osen.jpg"
+WALLPAPER_DEST="$HOME/Pictures/wallpapers/les_bordovye_osen.jpg"
 
 if [ "$(id -u)" -eq 0 ]; then
   printf 'Run this script as your user, not as root.\n' >&2
@@ -84,9 +85,17 @@ else
   rmdir -- "$BACKUP" 2>/dev/null || true
 fi
 
-if [ ! -f "$WALLPAPER" ]; then
-  printf 'Warning: wallpaper not found: %s\n' "$WALLPAPER"
-  printf 'Add it there or edit %s\n' "$DEST/hypr/config/autostart.conf"
+if [ -f "$WALLPAPER_SRC" ]; then
+  mkdir -p "$(dirname -- "$WALLPAPER_DEST")"
+  if [ -f "$WALLPAPER_DEST" ]; then
+    mkdir -p "$BACKUP/Pictures/wallpapers"
+    cp -a -- "$WALLPAPER_DEST" "$BACKUP/Pictures/wallpapers/"
+    printf 'Backed up %s\n' "$WALLPAPER_DEST"
+  fi
+  cp -a -- "$WALLPAPER_SRC" "$WALLPAPER_DEST"
+  printf 'Installed wallpaper %s\n' "$WALLPAPER_DEST"
+else
+  printf 'Warning: wallpaper not found in repo: %s\n' "$WALLPAPER_SRC"
 fi
 
 printf '\nDone. Reload with: hyprctl reload\n'

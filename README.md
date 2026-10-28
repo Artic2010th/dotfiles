@@ -16,4 +16,4 @@ The script backs up existing configs to `~/.config-backup-<timestamp>` and copie
 
 Dependencies: Hyprland, Waybar, Mako, Rofi, Wofi, nwg-dock-hyprland, swaybg, grimblast, slurp, swappy, cliphist, wl-clipboard, playerctl, fcitx5, wob, network-manager-applet, polkit-kde-agent.
 
-The wallpaper is not included. Put it at `~/Pictures/wallpapers/les_bordovye_osen.jpg` or edit `~/.config/hypr/config/autostart.conf`.
+The wallpaper is included in `wallpapers/` and installed to `~/Pictures/wallpapers/les_bordovye_osen.jpg` by `install.sh`.
